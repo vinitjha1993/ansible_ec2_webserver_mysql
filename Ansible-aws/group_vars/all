@@ -1,0 +1,3 @@
+---
+# AWS specific variables
+remote_user: ubuntu

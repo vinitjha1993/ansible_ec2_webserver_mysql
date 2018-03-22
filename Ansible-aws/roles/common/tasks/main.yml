@@ -1,0 +1,11 @@
+---
+# This role contains common plays that will run on all nodes.
+- name: Install python for Ansible
+  raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+- name: Set authorized key took from file
+  authorized_key:
+   user: ubuntu
+   state: present
+   key: "{{ lookup('file', '/home/bridgelabz/.ssh/id_rsa.pub') }}"
+   
+#this is not working and i have not mention about this in site.yml

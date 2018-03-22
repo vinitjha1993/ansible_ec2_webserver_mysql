@@ -1,0 +1,30 @@
+---
+# This role contains common plays that will run on all nodes.
+
+ - name: add repo
+   apt_repository: repo='ppa:deadsnakes/ppa' state=present update_cache=yes
+
+ - name: install python3.6
+   action: apt pkg={{item}} state=installed
+   with_items:
+     - python3.6    
+    
+ - name: Copy the code from repository
+   git: repo=https://github.com/vinitjha1993/django_login_register.git version=master dest=/home/ubuntu/git-project/
+
+ - name: Download pip
+   get_url:
+    url: https://bootstrap.pypa.io/get-pip.py 
+    dest: /home/ubuntu/git-project/get-pip.py
+
+ - name: get-pip.py
+   command: sudo python3.6 /home/ubuntu/git-project/get-pip.py
+  
+ - name: Install virtualEnvironment
+   pip: name={{item}} state=present
+   with_items:
+     - virtualenv  
+     
+ - name: Manually create the initial virtualenv
+   command: virtualenv /home/ubuntu/git-project/venv -p python3.6    
+

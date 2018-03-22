@@ -1,0 +1,22 @@
+---
+# AWS specific variables
+ec2_keypair: "vinit_key"
+ec2_security_group: "vinit_sg"
+ec2_instance_count: 1
+ec2_instance_type: "t2.micro"
+ec2_subnet_ids: ['subnet-xyz','subnet-abc']
+ec2_region: "ap-south-1"
+ec2_image: ami-84e3b2eb   #ubuntu free tier ec2_image
+ec2_tag_Name: "Webserver6"
+ec2_tag_Type: "webserver"
+ec2_tag_Environment: "production"
+ec2_volume_size: 8
+ec2_access_key: "xxxxxxxx"
+ec2_secret_key: "xxxxxxxxxx"
+ec2_tag: demo2
+ec2_tag_name_prefix: dj
+ec2_hosts: all
+wait_for_port: 22
+
+# This user name will be set by Tower, when run through Tower
+tower_user_name: admin
